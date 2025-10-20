@@ -1,29 +1,42 @@
+import { useState } from "react"
+
 const NewFueling = () => {
-  return (
-    <section>
-        <form>
-            <label>km</label>
-            <input type="number" />
+    const [km, setKm] = useState()
+    const [volume, setVolume] = useState()
+    const [fuelType, setFuelType] = useState()
+    const [price, setPrice] = useState()
 
-            <label>volume</label>
-            <input type="number" /><span>l</span>
+    return (
+        <section>
+            <form>
+                <div>
+                    <label>km</label>
+                    <input type="number" />
+                </div>
 
-            <label>fuel type</label>
-            <select>
-                <option value={"95"}>95</option>
-                <option value={"100"}>100</option>
-                <option value={"diesel"}>diesel</option>
-            </select>
+                <div>
+                    <label>volume</label>
+                    <input type="number" /><span>l</span></div>
+                <div>
+                    <label>fuel type</label>
+                    <select>
+                        <option value={"95"}>95</option>
+                        <option value={"100"}>100</option>
+                        <option value={"diesel"}>diesel</option>
+                    </select>
+                </div>
 
-            <label>price</label>
-            <input type="number"/><span>HUF</span>
+                <div>
+                    <label>price</label>
+                    <input type="number" /><span>HUF</span>
+                </div>
 
-            <button type="submit">
-                <i className="fa-solid fa-floppy-disk"></i>
-            </button>
-        </form>
-    </section>
-  )
+                <button type="submit">
+                    <i className="fa-solid fa-floppy-disk"></i>
+                </button>
+            </form>
+        </section>
+    )
 }
 
 export default NewFueling
