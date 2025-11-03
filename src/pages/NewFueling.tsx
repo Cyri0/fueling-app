@@ -1,4 +1,6 @@
 import { useState, type FormEvent } from "react"
+import styles from "./NewFueling.module.css"
+import { Link } from "react-router-dom"
 
 type FuelEventType = {
     km: number,
@@ -20,7 +22,7 @@ const NewFueling = () => {
     }
 
     return (
-        <section>
+        <section className={styles.newFueling}>
             <form onSubmit={formSubmitted}>
                 <div>
                     <label>km</label>
@@ -28,7 +30,7 @@ const NewFueling = () => {
                 </div>
 
                 <div>
-                    <label>volume</label>
+                    <label>vol</label>
                     <input type="number" value={volume} onChange={(e) => setVolume(Number(e.target.value))} /><span>l</span></div>
                 <div>
                     <label>fuel type</label>
@@ -47,6 +49,10 @@ const NewFueling = () => {
                 <button type="submit">
                     <i className="fa-solid fa-floppy-disk"></i>
                 </button>
+
+                <Link to={"/"} className={styles.backButton}>
+                    <i className="fa-solid fa-arrow-left"></i>
+                </Link>
             </form>
         </section>
     )

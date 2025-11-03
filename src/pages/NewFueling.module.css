@@ -1,0 +1,71 @@
+.newFueling {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    >form {
+        max-width: 700px;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        label {
+            display: block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+
+        }
+
+        select {
+            width: 100%;
+        }
+
+        >div {
+            display: grid;
+            grid-template-columns: 1fr 5fr 1fr;
+            gap: 10px;
+        }
+
+        button[type="submit"] {
+            position: fixed;
+            aspect-ratio: 1 / 1;
+            bottom: 10px;
+            right: 10px;
+            width: 80px;
+            aspect-ratio: 1 / 1;
+            font-size: 2rem;
+            border-radius: 50%;
+            border: none;
+            color: white;
+            background: green;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background: rgb(0, 82, 0);
+        }
+    }
+}
+
+.backButton {
+    width: 80px;
+    aspect-ratio: 1 / 1;
+    font-size: 2rem;
+    border-radius: 50%;
+    border: none;
+    color: white;
+    background: rgb(255, 107, 107);
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.backButton:hover {
+    background: rgb(255, 84, 84);
+}
