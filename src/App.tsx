@@ -14,24 +14,21 @@ const App = () => {
   const [fuelState, setFuelState] = useState<FuelEventType[]>([])
 
   useEffect(()=>{
-    if(!fuelState){
-      const storageData = localStorage.getItem("fuelState")
-      if(storageData){
-        setFuelState(JSON.parse(storageData))
-      }else{
-        localStorage.setItem("fuelState", JSON.stringify([]))
-        setFuelState([])
-      }
+    const storageData = localStorage.getItem("fuelState")
+    
+    if(storageData !== null){
+      setFuelState(JSON.parse(storageData))
     }else{
       localStorage.setItem("fuelState", JSON.stringify(fuelState))
     }
-  },[fuelState])
+  },[])
 
   return (
     <FuelContext.Provider value={
       {
         fuelData: fuelState,
         addNewData: (e:FuelEventType) => {
+          localStorage.setItem("fuelState", JSON.stringify([...fuelState, e]))
           setFuelState(prev => [...prev, e])
         }
       }}>
