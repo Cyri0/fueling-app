@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom"
 import Home from "./pages/Home"
 import NewFueling, { type FuelEventType } from "./pages/NewFueling"
 import Navbar from "./components/Navbar"
@@ -12,7 +12,6 @@ export const FuelContext = createContext<
 
 const App = () => {
   const [fuelState, setFuelState] = useState<FuelEventType[]>([])
-
   useEffect(()=>{
     const storageData = localStorage.getItem("fuelState")
     
@@ -31,7 +30,8 @@ const App = () => {
           localStorage.setItem("fuelState", JSON.stringify([...fuelState, e]))
           setFuelState(prev => [...prev, e])
         }
-      }}>
+      }
+    }>
       <BrowserRouter>
         <Navbar/>
         <Routes>

@@ -1,6 +1,6 @@
 import { useContext, useState, type FormEvent } from "react"
 import styles from "./NewFueling.module.css"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { FuelContext } from "../App"
 
 export type FuelEventType = {
@@ -18,10 +18,14 @@ const NewFueling = () => {
 
     const ctx = useContext(FuelContext)
 
+    let navigate = useNavigate();
+
     const formSubmitted = (e: FormEvent) => {
         e.preventDefault()
         const currentData:FuelEventType  = { km, volume, fuelType, price }
         ctx.addNewData(currentData)
+
+        navigate("/")
     }
 
     return (

@@ -14,11 +14,22 @@
             display: block;
             font-size: 0.8rem;
             text-transform: uppercase;
-
         }
 
         select {
             width: 100%;
+        }
+
+        select, input{
+            padding: 10px;
+            font-size: 1.2rem;
+            font-weight: 900;
+        }
+
+        span{
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
         }
 
         >div {
