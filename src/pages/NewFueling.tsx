@@ -1,8 +1,9 @@
-import { useState, type FormEvent } from "react"
+import { useContext, useState, type FormEvent } from "react"
 import styles from "./NewFueling.module.css"
 import { Link } from "react-router-dom"
+import { FuelContext } from "../App"
 
-type FuelEventType = {
+export type FuelEventType = {
     km: number,
     volume: number,
     fuelType: string,
@@ -15,10 +16,12 @@ const NewFueling = () => {
     const [fuelType, setFuelType] = useState<string>("95")
     const [price, setPrice] = useState<number>(0)
 
+    const ctx = useContext(FuelContext)
+
     const formSubmitted = (e: FormEvent) => {
         e.preventDefault()
         const currentData:FuelEventType  = { km, volume, fuelType, price }
-        console.log(currentData)
+        ctx.addNewData(currentData)
     }
 
     return (
